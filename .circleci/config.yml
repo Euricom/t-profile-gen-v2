@@ -75,4 +75,6 @@ workflows:
                 - develop
                 - /release\/.*/
                 - /hotfix\/.*/
-      - deploy
+      - deploy:
+          requires:
+            - build-and-test
