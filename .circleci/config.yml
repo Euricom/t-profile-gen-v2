@@ -57,9 +57,15 @@ jobs:
   deploy:
     steps:
       - run:
+<<<<<<< HEAD
           name: Test Echo
           command: |
             echo $HEROKU_API_KEY
+=======
+        name: Test Echo
+        command: |
+          echo $HEROKU_API_KEY
+>>>>>>> a61adf4f88911e6dbfbe4963739b3830d1a77568
 
 workflows:
   version: 2
