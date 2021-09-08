@@ -6,7 +6,8 @@
     "build": "tsc && vite build",
     "serve": "vite preview",
     "test": "jest",
-    "lint": "concurrently -n tsc,lint, -c \"cyan.bold,green.bold\" \"tsc --noEmit --pretty\" \"eslint --ext .js,.jsx,.ts,.tsx ./src\""
+    "lint": "concurrently -n tsc,lint, -c \"cyan.bold,green.bold\" \"tsc --noEmit --pretty\" \"eslint --ext .js,.jsx,.ts,.tsx ./src\"",
+    "test:ci": "jest --ci --reporters=default --reporters=jest-junit --maxWorkers=2"
   },
   "dependencies": {
     "react": "^17.0.0",
