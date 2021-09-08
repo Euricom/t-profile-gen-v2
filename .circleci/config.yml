@@ -55,10 +55,13 @@ jobs:
           root: ./
           paths: ./
   deploy:
+    docker:
+      - image: cimg/node:14.17.6
     steps:
       - run:
           name: Test Echo
           command: |
+            ls -a
             echo $HEROKU_API_KEY
 workflows:
   version: 2
