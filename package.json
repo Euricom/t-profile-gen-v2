@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build:dev": "vite build --mode development",
+    "build:prod": "vite build --mode production",
     "serve": "vite preview",
     "test": "jest",
     "lint": "concurrently -n tsc,lint, -c \"cyan.bold,green.bold\" \"tsc --noEmit --pretty\" \"eslint --ext .js,.jsx,.ts,.tsx ./src\"",
