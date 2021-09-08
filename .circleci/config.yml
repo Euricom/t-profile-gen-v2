@@ -64,6 +64,9 @@ jobs:
           name: Committing to Heroku git
           command: |
             echo "Deploying Started"
+            git config user.name ${CIRCLE_USERNAME}
+            git config user.email $GIT_EMAIL
+            git add ./dist -f
             git commit -m 'Deploy to heroku' --no-verify
             git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/t-profile-generator-v2.git HEAD:master
 
