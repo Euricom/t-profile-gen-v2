@@ -90,7 +90,6 @@ workflows:
                 - develop
                 - /release\/.*/
                 - /hotfix\/.*/
-    jobs:
       - heroku/deploy-via-git
       # - deploy-app:
       #     requires:
