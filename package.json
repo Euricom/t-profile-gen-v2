@@ -8,7 +8,8 @@
     "serve": "vite preview",
     "test": "jest",
     "lint": "concurrently -n tsc,lint, -c \"cyan.bold,green.bold\" \"tsc --noEmit --pretty\" \"eslint --ext .js,.jsx,.ts,.tsx ./src\"",
-    "test:ci": "jest --ci --reporters=default --reporters=jest-junit --maxWorkers=2"
+    "test:ci": "jest --ci --reporters=default --reporters=jest-junit --maxWorkers=2",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^17.0.0",
@@ -42,6 +43,7 @@
     "prettier": "^2.3.2",
     "react-test-renderer": "^17.0.2",
     "typescript": "^4.3.2",
-    "vite": "^2.5.4"
+    "vite": "^2.5.4",
+    "husky": "^7.0.0"
   }
 }
