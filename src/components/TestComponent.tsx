@@ -1,5 +1,5 @@
-import * as React from "react";
+import * as React from 'react';
 
-const TestComponent = () => <div>Test</div>;
+const TestComponent = () => <div>Develop branch</div>;
 
 export default TestComponent;
