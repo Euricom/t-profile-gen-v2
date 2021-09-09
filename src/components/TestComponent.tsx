@@ -1,5 +1,9 @@
 import * as React from 'react';
 
-const TestComponent = () => <div>Develop branch</div>;
+interface TestComponentProps {
+  name: string;
+}
+
+const TestComponent = ({ name }: TestComponentProps) => <div>{name}</div>;
 
 export default TestComponent;

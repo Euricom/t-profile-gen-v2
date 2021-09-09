@@ -1,11 +1,10 @@
 import * as React from 'react';
-import './App.css';
 import TestComponent from './components/TestComponent';
 
 function App() {
   return (
     <div className="App">
-      <TestComponent />
+      <TestComponent name="Develop Branch" />
     </div>
   );
 }
