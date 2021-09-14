@@ -6,7 +6,7 @@ import { WrapperComponent } from './components/Slider/Slider';
 function App() {
   return (
     <div className="App">
-      <TestComponent />
+      <TestComponent name="Develop Branch" />
       <WrapperComponent />
     </div>
   );
