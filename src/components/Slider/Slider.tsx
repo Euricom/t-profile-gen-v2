@@ -54,24 +54,12 @@ const StyledSlider = styled.input.attrs(() => ({
 
 interface SliderProps {
   ariaLabel: string;
-  onChange: () => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: number;
 }
 
-export const WrapperComponent = () => {
-  const [boxSize, setBoxSize] = React.useState('50');
-
-  const handleSlider = (event: React.ChangeEvent<HTMLInputElement>) => setBoxSize(event.currentTarget.value);
-
-  return (
-    <>
-      <StyledSlider aria-label="Generalisme 1 slider" onChange={handleSlider} />
-      <div style={{ width: `${boxSize}%`, backgroundColor: 'green', marginTop: '1rem', height: '2rem' }} />
-    </>
-  );
-};
-
-const Slider = ({ ariaLabel, onChange }: SliderProps): JSX.Element => (
-  <StyledSlider aria-label={ariaLabel} onChange={() => onChange()} />
+const Slider = ({ ariaLabel, onChange, value }: SliderProps): JSX.Element => (
+  <StyledSlider aria-label={ariaLabel} onChange={(event) => onChange(event)} value={value} />
 );
 
 export default Slider;
