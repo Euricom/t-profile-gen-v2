@@ -1,12 +1,7 @@
 import * as React from 'react';
-import TestComponent from './components/TestComponent';
 
-function App() {
-  return (
-    <div className="App">
-      <TestComponent name="Develop Branch" />
-    </div>
-  );
+function App(): JSX.Element {
+  return <div className="App">Page</div>;
 }
 
 export default App;
