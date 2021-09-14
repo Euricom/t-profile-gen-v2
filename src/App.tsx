@@ -1,13 +1,13 @@
 import * as React from 'react';
 import './App.css';
 import TestComponent from './components/TestComponent';
-import { Slider } from './components';
+import { WrapperComponent } from './components/Slider/Slider';
 
 function App() {
   return (
     <div className="App">
       <TestComponent />
-      <Slider />
+      <WrapperComponent />
     </div>
   );
 }
