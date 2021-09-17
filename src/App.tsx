@@ -19,8 +19,9 @@ function App(): JSX.Element {
     <div className="App">
       Page
       {/* for demo purposes -> remove when needed */}
-      {/* slider */}
-      <Slider ariaLabel="Generalisme 1 slider" onChange={handleSlider} value={boxSize * 100} />
+      {/* sliders */}
+      <Slider ariaLabel="Test slider 1" onChange={handleSlider} value={boxSize * 100} />
+      <Slider ariaLabel="Test slider 2" isDisabled onChange={() => null} value={50} />
       <div style={{ transform: `scaleX(${boxSize})`, backgroundColor: '#4EB439', marginTop: '2rem', height: '2rem' }} />
       {/* checkboxes */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
