@@ -23,29 +23,29 @@ export const CheckboxIcon = styled.svg.attrs({
   viewBox: '0 0 24 24',
   xmlns: 'http://www.w3.org/2000/svg',
 })`
-  color: #fff;
+  color: ${({ theme }) => theme.colors.neutral[50]};
   transform: scale(0.8);
 `;
 
 export const Checkbox = styled.div<Pick<CheckboxProps, 'isChecked'>>`
-  background: ${({ isChecked }) => (isChecked ? '#4EB439' : '#FFFFFF')};
-  border: #e4e4e4 solid 1px;
+  background: ${({ theme, isChecked }) => (isChecked ? theme.colors.primary[500] : theme.colors.neutral[50])};
+  border: ${({ theme }) => `1px solid ${theme.colors.neutral[100]}`};
   display: inline-block;
   height: 1rem;
-  margin: .25rem 0;
+  margin: 0.25rem 0;
   transition: all 300ms;
   width: 1rem;
 
   ${HiddenCheckbox}:focus + & {
-    box-shadow: 0 0 0 3px #e4e4e4;
+    box-shadow: ${({ theme }) => `0 0 0 3px ${theme.colors.neutral[100]}`};
   }
 
   ${HiddenCheckbox}:disabled + & {
-    background: #fff;
+    background: ${({ theme }) => theme.colors.neutral[50]};
   }
 
   ${HiddenCheckbox}:disabled:checked + & {
-    background: #e4e4e4
+    background: ${({ theme }) => theme.colors.neutral[100]};
   }
 
   ${CheckboxIcon} {
@@ -55,5 +55,5 @@ export const Checkbox = styled.div<Pick<CheckboxProps, 'isChecked'>>`
 
 export const CheckboxLabel = styled.span<Pick<CheckboxProps, 'isDisabled'>>`
   margin: 0 0 0 0.5rem;
-  color: ${({ isDisabled }) => (isDisabled ? '#c7c7c7' : '#000')};
+  color: ${({ isDisabled, theme }) => (isDisabled ? theme.colors.neutral[100] : theme.colors.neutral[900])};
 `;
