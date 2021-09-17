@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
-  border: solid 1px black;
+  border: ${({ theme }) => `1px solid ${theme.colors.neutral[900]}`};
   border-radius: 0px;
   box-sizing: border-box;
   font-size: 18px;

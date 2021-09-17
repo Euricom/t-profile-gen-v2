@@ -6,11 +6,11 @@ import '@fontsource/roboto/400.css'; // Roboto Regular
 import '@fontsource/roboto/700.css'; // Roboto Bold
 
 //  global styles go here
-const GlobalStyle = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
   ${reset};  
   body {
     font-family : Roboto, Helvetica Neue, Arial, sans-serif
   }
 `;
 
-export default GlobalStyle;
+export default GlobalStyles;

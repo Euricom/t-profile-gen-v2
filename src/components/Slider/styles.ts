@@ -9,7 +9,7 @@ export const Slider = styled.input.attrs(() => ({
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  background: #000;
+  background: ${({ theme }) => theme.colors.neutral[900]};
   cursor: pointer;
   height: 1px;
   margin: 0;
@@ -60,13 +60,13 @@ export const Slider = styled.input.attrs(() => ({
 
   // Chrome, Opera, Safari, Edge
   :focus::-webkit-slider-runnable-track {
-    box-shadow: 0 0 0 3px #e4e4e4;
+    box-shadow: ${({ theme }) => `0 0 0 3px ${theme.colors.neutral[100]}`};
     transition: all 300ms;
   }
 
   // Firefox
   :-moz-focusring {
-    outline: 3px solid #e4e4e4;
+    outline: ${({ theme }) => `3px solid ${theme.colors.neutral[100]}`};
     outline-offset: -1px;
     transition: outline 300ms;
   }
