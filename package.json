@@ -14,7 +14,8 @@
   "dependencies": {
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.1",
+    "styled-reset": "^4.3.4"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.15.4",
