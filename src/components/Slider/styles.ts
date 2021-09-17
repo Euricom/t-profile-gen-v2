@@ -46,7 +46,28 @@ export const Slider = styled.input.attrs(() => ({
     width: 10px;
   }
 
+  :disabled {
+    opacity: 0.5;
+  }
+
   :hover {
     opacity: 0.8;
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  // Chrome, Opera, Safari, Edge
+  :focus::-webkit-slider-runnable-track {
+    box-shadow: 0 0 0 3px #e4e4e4;
+    transition: all 300ms;
+  }
+
+  // Firefox
+  :-moz-focusring {
+    outline: 3px solid #e4e4e4;
+    outline-offset: -1px;
+    transition: outline 300ms;
   }
 `;
