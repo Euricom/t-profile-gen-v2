@@ -1,6 +1,7 @@
+import { DefaultTheme } from 'styled-components';
 import { colors } from './foundations';
 
-const theme = {
+const theme: DefaultTheme = {
   colors,
 };
 

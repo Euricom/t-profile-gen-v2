@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Checkbox, Slider } from './components';
+import { Checkbox, ColorPicker, Slider } from './components';
 import RadioButton from './components/RadioButton';
 
 function App(): JSX.Element {
   const [boxSize, setBoxSize] = React.useState<number>(0);
   const [checked, setChecked] = React.useState(false);
+  const [color, setColor] = React.useState('#4eb439');
   const [selectedRadio, setSelectedRadio] = React.useState<string>();
 
   const handleSlider = (event: React.ChangeEvent<HTMLInputElement>) =>
@@ -51,6 +52,11 @@ function App(): JSX.Element {
           value="address"
         />
       </div>
+      {/* color picker */}
+      <p style={{ margin: '1.5rem 0 1rem 0', fontWeight: 700, fontSize: '1.1rem' }}>Color Picker Component</p>
+      <ColorPicker ariaLabel="Color picker" color={color} onChange={setColor}>
+        Pick your color
+      </ColorPicker>
     </div>
   );
 }
