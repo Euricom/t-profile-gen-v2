@@ -23,6 +23,7 @@ const colors = {
     800: '#153b0e',
     900: '#011500',
   },
+  'euri-grey': '#f3f3f3',
 };
 
 export default colors;
