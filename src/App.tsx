@@ -31,7 +31,7 @@ function App(): JSX.Element {
       </div>
       {/* color picker */}
       <p style={{ margin: '1.5rem 0 1rem 0', fontWeight: 700, fontSize: '1.1rem' }}>Color Picker Component</p>
-      <ColorPicker color={color} onChange={setColor}>
+      <ColorPicker ariaLabel="Color picker" color={color} onChange={setColor}>
         Pick your color
       </ColorPicker>
     </div>

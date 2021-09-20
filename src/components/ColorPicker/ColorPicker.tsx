@@ -4,7 +4,7 @@ import * as S from './styles';
 import { ColorPickerProps } from './types';
 import { useClickOutside } from '../../hooks';
 
-const ColorPicker = ({ children, color, onChange }: ColorPickerProps): JSX.Element => {
+const ColorPicker = ({ ariaLabel, children, color, onChange }: ColorPickerProps): JSX.Element => {
   const theme = useTheme();
   const popoverElement = React.useRef<null | HTMLDivElement>(null);
   const [isOpen, setIsOpen] = React.useState(false);
@@ -18,16 +18,17 @@ const ColorPicker = ({ children, color, onChange }: ColorPickerProps): JSX.Eleme
   return (
     <S.ColorPickerContainer>
       <S.ColorPicker>
-        <S.ColorPickerSwatch color={color} onClick={() => setIsOpen(true)} />
+        <S.ColorPickerSwatch aria-label={ariaLabel} color={color} onClick={() => setIsOpen(true)} />
         <S.ColorPickerLabel onClick={() => setIsOpen(true)}>{children}</S.ColorPickerLabel>
       </S.ColorPicker>
 
       {isOpen && (
-        <S.ColorPickerPopoverContainer ref={popoverElement}>
+        <S.ColorPickerPopoverContainer ref={popoverElement} data-testid="color-picker">
           <S.ColorPickerPopover color={color} onChange={onChange} />
           <S.ColorPickerPopoverSwatchesContainer>
             {colorPresets.map((colorPreset) => (
               <S.ColorPickerPopoverSwatch
+                aria-label={`Color preset ${colorPreset}`}
                 color={colorPreset}
                 key={colorPreset}
                 onClick={() => {
