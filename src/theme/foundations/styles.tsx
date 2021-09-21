@@ -14,6 +14,10 @@ const GlobalStyles = createGlobalStyle`
     outline: none;
   }
 
+  html, body, body > div {
+    height: 100%;
+  }
+
   body {
     font-family : Roboto, Helvetica Neue, Arial, sans-serif
   }
