@@ -1,11 +1,16 @@
 import * as React from 'react';
-import { Checkbox, Slider } from './components';
+import { Checkbox, SkillSetControl, Slider } from './components';
 import RadioButton from './components/RadioButton';
 
 function App(): JSX.Element {
   const [boxSize, setBoxSize] = React.useState<number>(0);
   const [checked, setChecked] = React.useState(false);
   const [selectedRadio, setSelectedRadio] = React.useState<string>();
+
+  const [skill, setSkill] = React.useState('');
+  const [proficiency, setProficiency] = React.useState<number>(0);
+  const handleSkillChange = (skill: string) => setSkill(skill);
+  const handleProficiencyChange = (proficiency: number) => setProficiency(proficiency);
 
   const handleSlider = (event: React.ChangeEvent<HTMLInputElement>) =>
     setBoxSize(Number(event.currentTarget.value) / 100);
@@ -49,6 +54,17 @@ function App(): JSX.Element {
           onChange={handleRadioChange}
           name="fullname-group"
           value="address"
+        />
+      </div>
+      {/* SkillSetControl */}
+      <div>
+        <SkillSetControl
+          label="Generalisme 1"
+          skill={skill}
+          proficiency={proficiency}
+          onSkillChange={handleSkillChange}
+          onProficiencyChange={handleProficiencyChange}
+          id="G1"
         />
       </div>
     </div>
