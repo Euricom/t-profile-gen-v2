@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Checkbox, ColorPicker, Slider } from './components';
+import { Button, Checkbox, ColorPicker, CookieBanner, Slider } from './components';
 import RadioButton from './components/RadioButton';
 
 function App(): JSX.Element {
@@ -7,6 +7,7 @@ function App(): JSX.Element {
   const [checked, setChecked] = React.useState(false);
   const [color, setColor] = React.useState('#4eb439');
   const [selectedRadio, setSelectedRadio] = React.useState<string>();
+  const [cookieConsent, setCookieConsent] = React.useState(false);
 
   const handleSlider = (event: React.ChangeEvent<HTMLInputElement>) =>
     setBoxSize(Number(event.currentTarget.value) / 100);
@@ -23,6 +24,9 @@ function App(): JSX.Element {
   const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
     // do something with event
     event;
+
+  const handleCookieAccept = () => setCookieConsent(true);
+  const handleCookieDecline = () => setCookieConsent(false);
 
   return (
     <div className="App">
@@ -82,6 +86,14 @@ function App(): JSX.Element {
       <Button size="large" onClick={handleButtonClick} variant="secondary">
         Large Secondary Button
       </Button>
+      {/*  cookie banner */}
+      <p style={{ margin: '1.5rem 0 1rem 0', fontWeight: 700, fontSize: '1.1rem' }}>Cookie Banner</p>
+      <CookieBanner onAccept={handleCookieAccept} onDecline={handleCookieDecline}>
+        We use cookies to save your unsaved changes. Do you want to enable this?
+      </CookieBanner>
+      <p style={{ margin: '1.5rem 0 1rem 0' }}>
+        Cookies accepted: <span>{cookieConsent ? '✅' : '❌'}</span>
+      </p>
     </div>
   );
 }
