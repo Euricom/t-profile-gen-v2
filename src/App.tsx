@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Checkbox, SkillSetControl, Slider } from './components';
+import { Button, Checkbox, ColorPicker, Slider, SkillSetControl } from './components';
 import RadioButton from './components/RadioButton';
 
 function App(): JSX.Element {
   const [boxSize, setBoxSize] = React.useState<number>(0);
   const [checked, setChecked] = React.useState(false);
+  const [color, setColor] = React.useState('#4eb439');
   const [selectedRadio, setSelectedRadio] = React.useState<string>();
 
   const [skill, setSkill] = React.useState('');
@@ -23,6 +24,10 @@ function App(): JSX.Element {
   };
 
   const handleRadioChange = (value: string) => setSelectedRadio(value);
+
+  const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
+    // do something with event
+    event;
 
   return (
     <div className="App">
@@ -67,6 +72,32 @@ function App(): JSX.Element {
           id="G1"
         />
       </div>
+      {/* color picker */}
+      <p style={{ margin: '1.5rem 0 1rem 0', fontWeight: 700, fontSize: '1.1rem' }}>Color Picker Component</p>
+      <ColorPicker ariaLabel="Color picker" color={color} onChange={setColor}>
+        Pick your color
+      </ColorPicker>
+      {/*  buttons */}
+      <p style={{ margin: '1.5rem 0 1rem 0', fontWeight: 700, fontSize: '1.1rem' }}>Buttons</p>
+      <Button size="small" onClick={handleButtonClick}>
+        Small Primary Button
+      </Button>
+      <Button size="medium" onClick={handleButtonClick}>
+        Medium Primary Button
+      </Button>
+      <Button size="large" onClick={handleButtonClick}>
+        Large Primary Button
+      </Button>
+      <br />
+      <Button size="small" onClick={handleButtonClick} variant="secondary">
+        Small Secondary Button
+      </Button>
+      <Button size="medium" onClick={handleButtonClick} variant="secondary">
+        Medium Secondary Button
+      </Button>
+      <Button size="large" onClick={handleButtonClick} variant="secondary">
+        Large Secondary Button
+      </Button>
     </div>
   );
 }
