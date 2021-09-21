@@ -63,9 +63,24 @@ function App(): JSX.Element {
       </ColorPicker>
       {/*  buttons */}
       <p style={{ margin: '1.5rem 0 1rem 0', fontWeight: 700, fontSize: '1.1rem' }}>Buttons</p>
-      <Button onClick={handleButtonClick}>Primary Button</Button>
-      <Button onClick={handleButtonClick} variant="secondary">
-        Secondary Button
+      <Button size="small" onClick={handleButtonClick}>
+        Small Primary Button
+      </Button>
+      <Button size="medium" onClick={handleButtonClick}>
+        Medium Primary Button
+      </Button>
+      <Button size="large" onClick={handleButtonClick}>
+        Large Primary Button
+      </Button>
+      <br />
+      <Button size="small" onClick={handleButtonClick} variant="secondary">
+        Small Secondary Button
+      </Button>
+      <Button size="medium" onClick={handleButtonClick} variant="secondary">
+        Medium Secondary Button
+      </Button>
+      <Button size="large" onClick={handleButtonClick} variant="secondary">
+        Large Secondary Button
       </Button>
     </div>
   );
