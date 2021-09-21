@@ -1,7 +1,8 @@
 import { DefaultTheme } from 'styled-components';
-import { colors } from './foundations';
+import { breakpoints, colors } from './foundations';
 
 const theme: DefaultTheme = {
+  breakpoints,
   colors,
 };
 

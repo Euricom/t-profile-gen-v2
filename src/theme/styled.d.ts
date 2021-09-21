@@ -3,6 +3,13 @@ import 'styled-components';
 // extending types of default theme
 declare module 'styled-components' {
   export interface DefaultTheme {
+    breakpoints: {
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+      '2xl': string;
+    };
     colors: {
       neutral: {
         50: string;
