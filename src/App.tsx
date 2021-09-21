@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Checkbox, ColorPicker, Slider } from './components';
+import { Button, Checkbox, ColorPicker, Slider } from './components';
 import RadioButton from './components/RadioButton';
 
 function App(): JSX.Element {
@@ -19,6 +19,10 @@ function App(): JSX.Element {
   };
 
   const handleRadioChange = (value: string) => setSelectedRadio(value);
+
+  const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
+    // do something with event
+    event;
 
   return (
     <div className="App">
@@ -57,6 +61,12 @@ function App(): JSX.Element {
       <ColorPicker ariaLabel="Color picker" color={color} onChange={setColor}>
         Pick your color
       </ColorPicker>
+      {/*  buttons */}
+      <p style={{ margin: '1.5rem 0 1rem 0', fontWeight: 700, fontSize: '1.1rem' }}>Buttons</p>
+      <Button onClick={handleButtonClick}>Primary Button</Button>
+      <Button onClick={handleButtonClick} variant="secondary">
+        Secondary Button
+      </Button>
     </div>
   );
 }
