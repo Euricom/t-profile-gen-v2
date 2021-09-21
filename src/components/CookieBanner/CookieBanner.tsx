@@ -4,7 +4,7 @@ import { CookieBannerProps } from './types';
 import Button from '../Button/Button';
 
 const CookieBanner = ({ children, onAccept, onDecline }: CookieBannerProps): JSX.Element => (
-  <S.CookieBanner>
+  <S.CookieBanner data-testid="cookie-banner">
     <S.CookieBannerTextContainer>{children}</S.CookieBannerTextContainer>
     <S.CookieBannerActionContainer>
       <Button onClick={() => onDecline()} variant="secondary">
