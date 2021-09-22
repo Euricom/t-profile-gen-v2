@@ -8,7 +8,7 @@ const TProfileItem = ({
   borderColor,
   children,
   legend,
-  scale,
+  scale = 10,
   type,
 }: TProfileItemProps): JSX.Element => (
   <>
