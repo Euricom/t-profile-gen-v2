@@ -1,8 +1,18 @@
 import styled from 'styled-components';
 
-export const SpecialisationWrapper = styled.div`
+export const TProfileWrapper = styled.section`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  transform: rotate(90deg) translate(50%, -50%);
-  transform-origin: center 0;
+  height: 100%;
+`;
+
+export const GeneralisationWrapper = styled.div`
+  width: 100%;
+`;
+
+export const SpecialisationWrapper = styled.div`
+  align-items: flex-start;
+  display: flex;
+  height: calc(100% - 9rem);
 `;

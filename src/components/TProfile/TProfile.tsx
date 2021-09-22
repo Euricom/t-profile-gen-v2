@@ -1,45 +1,78 @@
 import React from 'react';
-import TProfileItem from './TProfileItem/TProfileItem';
 import * as S from './styles';
-import { Slider } from '../index';
+import TProfileItem from './TProfileItem/TProfileItem';
 
-// scale
-// rotation
-// fill color
-// border visible
-// border color
+const BG_COLOR_PLACEHOLDER = 'red';
+const BORDER_COLOR_PLACEHOLDER = 'blue';
 
-const TProfile = (): JSX.Element => {
-  const [boxSize, setBoxSize] = React.useState<number>(10);
-  const [boxSize1, setBoxSize1] = React.useState<number>(10);
+const TProfile = (): JSX.Element => (
+  <S.TProfileWrapper>
+    <S.GeneralisationWrapper>
+      <TProfileItem
+        border
+        bgColor={BG_COLOR_PLACEHOLDER}
+        borderColor={BORDER_COLOR_PLACEHOLDER}
+        scale={80}
+        legend="G1"
+        type="generalisme"
+      >
+        React
+      </TProfileItem>
+      <TProfileItem
+        border
+        bgColor={BG_COLOR_PLACEHOLDER}
+        borderColor={BORDER_COLOR_PLACEHOLDER}
+        scale={50}
+        legend="G2"
+        type="generalisme"
+      >
+        Angular
+      </TProfileItem>
+      <TProfileItem
+        border
+        bgColor={BG_COLOR_PLACEHOLDER}
+        borderColor={BORDER_COLOR_PLACEHOLDER}
+        scale={90}
+        legend="G3"
+        type="generalisme"
+      >
+        Vue
+      </TProfileItem>
+    </S.GeneralisationWrapper>
 
-  const handleSlider = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setBoxSize(Number(event.currentTarget.value));
-  };
-
-  const handleSlider2 = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setBoxSize1(Number(event.currentTarget.value));
-  };
-
-  return (
-    <>
-      <Slider ariaLabel="Test slider 1" onChange={handleSlider} value={boxSize} />
-      <Slider ariaLabel="Test slider 2" onChange={handleSlider2} value={boxSize1} />
-      <div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}>
-        <TProfileItem scale={boxSize} legend="G1" type="generalisme">
-          React
-        </TProfileItem>
-        <TProfileItem scale={boxSize} legend="G1" type="generalisme">
-          React
-        </TProfileItem>
-      </div>
-      <S.SpecialisationWrapper>
-        <TProfileItem scale={boxSize1} legend="G2" type="specialisme">
-          Back-End Development
-        </TProfileItem>
-      </S.SpecialisationWrapper>
-    </>
-  );
-};
+    <S.SpecialisationWrapper>
+      <TProfileItem
+        border
+        bgColor={BG_COLOR_PLACEHOLDER}
+        borderColor={BORDER_COLOR_PLACEHOLDER}
+        scale={70}
+        legend="S1"
+        type="specialisme"
+      >
+        Back-End
+      </TProfileItem>
+      <TProfileItem
+        border
+        bgColor={BG_COLOR_PLACEHOLDER}
+        borderColor={BORDER_COLOR_PLACEHOLDER}
+        scale={30}
+        legend="S2"
+        type="specialisme"
+      >
+        Devops
+      </TProfileItem>
+      <TProfileItem
+        border
+        bgColor={BG_COLOR_PLACEHOLDER}
+        borderColor={BORDER_COLOR_PLACEHOLDER}
+        scale={78}
+        legend="S3"
+        type="specialisme"
+      >
+        Data Science
+      </TProfileItem>
+    </S.SpecialisationWrapper>
+  </S.TProfileWrapper>
+);
 
 export default TProfile;

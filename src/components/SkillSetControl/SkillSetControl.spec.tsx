@@ -11,7 +11,7 @@ describe('AttributeControl', () => {
     const handleProficiencyChange = jest.fn();
 
     const skill = 'React';
-    const proficiency = 5;
+    const proficiency = 10;
 
     render(
       <SkillSetControl
@@ -33,8 +33,8 @@ describe('AttributeControl', () => {
 
     const slider = screen.getByRole('slider', { name: /generalisme 1/i });
     expect(slider).toHaveValue(proficiency.toString());
-    fireEvent.change(slider, { target: { value: 8 } });
-    expect(handleProficiencyChange).toHaveBeenCalledWith(8);
+    fireEvent.change(slider, { target: { value: 13 } });
+    expect(handleProficiencyChange).toHaveBeenCalledWith(13);
   });
 
   it('should have a disabled slider when no skill is entered', () => {

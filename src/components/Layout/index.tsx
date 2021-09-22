@@ -33,7 +33,6 @@ const Skills = styled.div`
 const Preview = styled.div`
   height: 100%;
   grid-area: preview;
-  background-color: yellow;
 `;
 const Config = styled.div`
   height: 100%;
