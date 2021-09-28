@@ -11,10 +11,11 @@ const TProfile = (): JSX.Element => {
   const { skillSets } = React.useContext(SkillContext);
 
   const skillSetItems = Object.entries(skillSets).map((skillSetItem) => {
-    const [abbr, { proficiency, skill }] = skillSetItem;
+    const [abbr, { id, proficiency, skill }] = skillSetItem;
 
     return {
       abbr,
+      id,
       proficiency,
       skill,
     };
@@ -31,7 +32,7 @@ const TProfile = (): JSX.Element => {
                 border
                 bgColor={BG_COLOR_PLACEHOLDER}
                 borderColor={BORDER_COLOR_PLACEHOLDER}
-                key={skillSetItem.skill}
+                key={skillSetItem.id}
                 scale={skillSetItem.proficiency}
                 legend={skillSetItem.abbr.toUpperCase()}
                 type="generalisme"
@@ -51,7 +52,7 @@ const TProfile = (): JSX.Element => {
                 border
                 bgColor={BG_COLOR_PLACEHOLDER}
                 borderColor={BORDER_COLOR_PLACEHOLDER}
-                key={skillSetItem.skill}
+                key={skillSetItem.id}
                 scale={skillSetItem.proficiency}
                 legend={skillSetItem.abbr.toUpperCase()}
                 type="specialisme"

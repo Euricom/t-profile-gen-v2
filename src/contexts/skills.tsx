@@ -8,6 +8,7 @@ export function isSkillType(value: string): asserts value is Skill {
 }
 
 interface SkillSet {
+  id: string;
   proficiency: number;
   skill: string;
 }
@@ -24,12 +25,12 @@ const initialProficiency = 10;
 const initialSkill = '';
 
 export const initialSkillSets: SkillContextValue['skillSets'] = {
-  g1: { proficiency: initialProficiency, skill: initialSkill },
-  g2: { proficiency: initialProficiency, skill: initialSkill },
-  g3: { proficiency: initialProficiency, skill: initialSkill },
-  s1: { proficiency: initialProficiency, skill: initialSkill },
-  s2: { proficiency: initialProficiency, skill: initialSkill },
-  s3: { proficiency: initialProficiency, skill: initialSkill },
+  g1: { id: 'g1', proficiency: initialProficiency, skill: initialSkill },
+  g2: { id: 'g2', proficiency: initialProficiency, skill: initialSkill },
+  g3: { id: 'g3', proficiency: initialProficiency, skill: initialSkill },
+  s1: { id: 's1', proficiency: initialProficiency, skill: initialSkill },
+  s2: { id: 's2', proficiency: initialProficiency, skill: initialSkill },
+  s3: { id: 's3', proficiency: initialProficiency, skill: initialSkill },
 };
 
 export const SkillContext = React.createContext<SkillContextValue>({

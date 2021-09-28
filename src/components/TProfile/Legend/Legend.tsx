@@ -9,7 +9,7 @@ const Legend = ({ skillsData }: LegendProps): JSX.Element => (
     {skillsData.map((skillsDataItem) => {
       if (skillsDataItem.skill && skillsDataItem.proficiency <= proficiencyValue) {
         return (
-          <S.LegendItem key={skillsDataItem.abbr}>
+          <S.LegendItem key={skillsDataItem.id}>
             {skillsDataItem.abbr.toUpperCase()}: <span>{skillsDataItem.skill}</span>
           </S.LegendItem>
         );
