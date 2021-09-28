@@ -31,6 +31,7 @@ const TProfile = (): JSX.Element => {
                 border
                 bgColor={BG_COLOR_PLACEHOLDER}
                 borderColor={BORDER_COLOR_PLACEHOLDER}
+                key={skillSetItem.skill}
                 scale={skillSetItem.proficiency}
                 legend={skillSetItem.abbr.toUpperCase()}
                 type="generalisme"
@@ -50,6 +51,7 @@ const TProfile = (): JSX.Element => {
                 border
                 bgColor={BG_COLOR_PLACEHOLDER}
                 borderColor={BORDER_COLOR_PLACEHOLDER}
+                key={skillSetItem.skill}
                 scale={skillSetItem.proficiency}
                 legend={skillSetItem.abbr.toUpperCase()}
                 type="specialisme"
