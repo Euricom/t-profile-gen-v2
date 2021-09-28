@@ -1,43 +1,22 @@
 import React from 'react';
 import * as S from './styles';
+import { LegendProps } from './types';
 
 const proficiencyValue = 25;
 
-const Legend = (): JSX.Element => {
-  const SkillSetPlaceholder = {
-    g1: { proficiency: 25, skill: 'React' },
-    g2: { proficiency: 24, skill: 'Angular' },
-    g3: { proficiency: 100, skill: 'Vue' },
-    s1: { proficiency: 40, skill: 'Back-End' },
-    s2: { proficiency: 10, skill: 'Devops' },
-    s3: { proficiency: 0, skill: 'Data Science' },
-  };
-
-  const legendItems = Object.entries(SkillSetPlaceholder).map((legendItem) => {
-    const abbr = legendItem[0];
-    const { proficiency, skill } = legendItem[1];
-
-    return {
-      abbr,
-      proficiency,
-      skill,
-    };
-  });
-
-  return (
-    <S.Legend>
-      {legendItems.map((legendItem) => {
-        if (legendItem.skill && legendItem.proficiency >= proficiencyValue) {
-          return (
-            <S.LegendItem key={legendItem.abbr}>
-              {legendItem.abbr.toUpperCase()}: <span>{legendItem.skill}</span>
-            </S.LegendItem>
-          );
-        }
-        return null;
-      })}
-    </S.Legend>
-  );
-};
+const Legend = ({ skillsData }: LegendProps): JSX.Element => (
+  <S.Legend>
+    {skillsData.map((skillsDataItem) => {
+      if (skillsDataItem.skill && skillsDataItem.proficiency <= proficiencyValue) {
+        return (
+          <S.LegendItem key={skillsDataItem.abbr}>
+            {skillsDataItem.abbr.toUpperCase()}: <span>{skillsDataItem.skill}</span>
+          </S.LegendItem>
+        );
+      }
+      return null;
+    })}
+  </S.Legend>
+);
 
 export default Legend;

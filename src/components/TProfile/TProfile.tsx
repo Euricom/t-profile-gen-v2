@@ -22,7 +22,7 @@ const TProfile = (): JSX.Element => {
 
   return (
     <S.TProfileWrapper>
-      <Legend />
+      <Legend skillsData={skillSetItems} />
       <S.GeneralisationWrapper>
         {skillSetItems.map((skillSetItem) => {
           if (skillSetItem.skill && skillSetItem.abbr.includes('gen')) {
