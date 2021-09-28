@@ -1,7 +1,6 @@
 /* eslint-disable arrow-body-style */
 import * as React from 'react';
 import styled from 'styled-components';
-import SkillProvider from '../../contexts/skills';
 
 const Grid = styled.div`
   display: grid;
@@ -36,7 +35,6 @@ const Skills = styled.div`
 const Preview = styled.div`
   height: 100%;
   grid-area: preview;
-  background-color: yellow;
 `;
 const Config = styled.div`
   height: 100%;
@@ -67,9 +65,7 @@ const Layout = ({ header, skills, preview, config, cookies, user }: LayoutProps)
   return (
     <Grid>
       <Header>{header}</Header>
-      <SkillProvider>
-        <Skills>{skills}</Skills>
-      </SkillProvider>
+      <Skills>{skills}</Skills>
       <Preview>{preview}</Preview>
       <Config>{config}</Config>
       {cookies && <Cookies>{cookies}</Cookies>}
