@@ -1,12 +1,14 @@
 import React from 'react';
 import * as S from './styles';
 import TProfileItem from './TProfileItem/TProfileItem';
+import Legend from './Legend/Legend';
 
 const BG_COLOR_PLACEHOLDER = 'red';
 const BORDER_COLOR_PLACEHOLDER = 'blue';
 
 const TProfile = (): JSX.Element => (
   <S.TProfileWrapper>
+    <Legend />
     <S.GeneralisationWrapper>
       <TProfileItem
         border
@@ -45,7 +47,7 @@ const TProfile = (): JSX.Element => (
         border
         bgColor={BG_COLOR_PLACEHOLDER}
         borderColor={BORDER_COLOR_PLACEHOLDER}
-        scale={70}
+        scale={100}
         legend="S1"
         type="specialisme"
       >
@@ -55,7 +57,7 @@ const TProfile = (): JSX.Element => (
         border
         bgColor={BG_COLOR_PLACEHOLDER}
         borderColor={BORDER_COLOR_PLACEHOLDER}
-        scale={30}
+        scale={10}
         legend="S2"
         type="specialisme"
       >
