@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CookieBanner = styled.section`
   align-items: flex-start;
-  background-color: ${({ theme }) => theme.colors['euri-grey']};
+  background-color: ${({ theme }) => theme.colors['bg-grey']};
   border: 2px solid ${({ theme }) => theme.colors.primary[500]};
   display: flex;
   flex-direction: column;

@@ -36,6 +36,7 @@ declare module 'styled-components' {
         900: string;
       };
       'euri-grey': string;
+      'bg-grey': string;
     };
   }
 }

@@ -4,5 +4,5 @@ export interface ColorPickerProps {
   ariaLabel: string;
   children: ReactNode;
   color: string;
-  onChange: Dispatch<SetStateAction<string>>;
+  onChange: (color: string) => void;
 }

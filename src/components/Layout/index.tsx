@@ -41,7 +41,6 @@ const Preview = styled.div`
 const Config = styled.div`
   height: 100%;
   grid-area: config;
-  background-color: green;
 `;
 const Cookies = styled.div`
   height: 100%;
