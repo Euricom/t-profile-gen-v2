@@ -22,7 +22,7 @@ describe('Skills', () => {
 
     const gen1SkillInput = screen.getByRole('textbox', { name: /generalisme 1/i });
     userEvent.type(gen1SkillInput, 'React');
-    expect(changeSkill).toHaveBeenNthCalledWith(3, 'gen1', 'a');
+    expect(changeSkill).toHaveBeenNthCalledWith(3, 'g1', 'a');
 
     screen.getByRole('textbox', { name: /generalisme 2/i });
     screen.getByRole('textbox', { name: /generalisme 3/i });

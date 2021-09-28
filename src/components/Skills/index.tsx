@@ -17,12 +17,12 @@ const StyledLabel = styled(Label)`
 `;
 
 const controlLabels: Record<Skill, string> = {
-  gen1: 'Generalisme 1',
-  gen2: 'Generalisme 2',
-  gen3: 'Generalisme 3',
-  spec1: 'Specialisme 1',
-  spec2: 'Specialisme 2',
-  spec3: 'Specialisme 3',
+  g1: 'Generalisme 1',
+  g2: 'Generalisme 2',
+  g3: 'Generalisme 3',
+  s1: 'Specialisme 1',
+  s2: 'Specialisme 2',
+  s3: 'Specialisme 3',
 };
 
 const Skills = (): JSX.Element => {

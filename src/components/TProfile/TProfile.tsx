@@ -25,7 +25,7 @@ const TProfile = (): JSX.Element => {
       <Legend skillsData={skillSetItems} />
       <S.GeneralisationWrapper>
         {skillSetItems.map((skillSetItem) => {
-          if (skillSetItem.skill && skillSetItem.abbr.includes('gen')) {
+          if (skillSetItem.skill && skillSetItem.abbr.includes('g')) {
             return (
               <TProfileItem
                 border
@@ -45,7 +45,7 @@ const TProfile = (): JSX.Element => {
       </S.GeneralisationWrapper>
       <S.SpecialisationWrapper>
         {skillSetItems.map((skillSetItem) => {
-          if (skillSetItem.skill && skillSetItem.abbr.includes('spec')) {
+          if (skillSetItem.skill && skillSetItem.abbr.includes('s')) {
             return (
               <TProfileItem
                 border
