@@ -2,7 +2,7 @@ import * as React from 'react';
 import Config from './components/Config';
 
 import Layout from './components/Layout';
-import { NamePreview, TProfile } from './components';
+import { Header, NamePreview, TProfile } from './components';
 import Skills from './components/Skills';
 import { SkillContext } from './contexts/skills';
 
@@ -14,7 +14,7 @@ function App(): JSX.Element {
   return (
     <Layout
       config={<Config />}
-      header={<Test />}
+      header={<Header>T-Profile Generator</Header>}
       cookies={<Test />}
       preview={<TProfile />}
       skills={<Skills />}

@@ -23,7 +23,6 @@ const Grid = styled.div`
 const Header = styled.div`
   height: 100%;
   grid-area: header;
-  background-color: red;
 `;
 const Skills = styled.div`
   display: flex;
