@@ -2,12 +2,15 @@ import * as React from 'react';
 import Config from './components/Config';
 
 import Layout from './components/Layout';
-import { TProfile } from './components';
+import { NamePreview, TProfile } from './components';
 import Skills from './components/Skills';
+import { SkillContext } from './contexts/skills';
 
 const Test = () => <div />;
 
 function App(): JSX.Element {
+  const { fullName } = React.useContext(SkillContext);
+
   return (
     <Layout
       config={<Config />}
@@ -15,7 +18,7 @@ function App(): JSX.Element {
       cookies={<Test />}
       preview={<TProfile />}
       skills={<Skills />}
-      user={<Test />}
+      user={<NamePreview state="To Be">{fullName}</NamePreview>}
     />
   );
 }

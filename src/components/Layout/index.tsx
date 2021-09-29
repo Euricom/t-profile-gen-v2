@@ -48,7 +48,6 @@ const Cookies = styled.div`
 const User = styled.div`
   height: 100%;
   grid-area: user;
-  background-color: black;
 `;
 
 interface LayoutProps {
