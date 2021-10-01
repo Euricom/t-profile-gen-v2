@@ -9,8 +9,10 @@ import { exportImage } from './utils';
 const Test = () => <div />;
 
 function App(): JSX.Element {
-  const { fullName } = React.useContext(SkillContext);
+  const { fullName, skillSets } = React.useContext(SkillContext);
   const imageExportDOMNode = React.useRef<null | HTMLElement>(null);
+
+  const isTprofilePresent = Boolean(Object.values(skillSets).filter((skillSet) => skillSet.skill).length);
 
   const handleImageExport = () => exportImage({ DOMNode: imageExportDOMNode.current, userName: fullName });
 
@@ -19,7 +21,7 @@ function App(): JSX.Element {
       config={<Config onExportClick={handleImageExport} />}
       header={<Header>T-Profile Generator</Header>}
       cookies={<Test />}
-      preview={<TProfile ref={imageExportDOMNode} />}
+      preview={isTprofilePresent ? <TProfile ref={imageExportDOMNode} /> : null}
       skills={<Skills />}
       user={<NamePreview state="To Be">{fullName}</NamePreview>}
     />

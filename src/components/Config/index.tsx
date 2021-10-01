@@ -24,11 +24,12 @@ const TemplateDiv = styled.div`
   flex-basis: 0;
 `;
 
-const Config = ({ onExportClick }: ConfigProps): JSX.Element => (
+const Config = ({ isExportDisabled, onExportClick }: ConfigProps): JSX.Element => (
   <Wrapper>
     <ProfileConfig />
     <Vr />
     <TemplateDiv>
+      {isExportDisabled}
       <Button onClick={() => onExportClick()}>Export</Button>
     </TemplateDiv>
   </Wrapper>
