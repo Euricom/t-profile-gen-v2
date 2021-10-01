@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import ProfileConfig from './ProfileConfig';
+import Button from '../Button/Button';
+import { ConfigProps } from './types';
 
 const Vr = styled.div`
   border-right: solid 2px ${({ theme }) => theme.colors.primary[500]};
@@ -22,11 +24,16 @@ const TemplateDiv = styled.div`
   flex-basis: 0;
 `;
 
-const Config = (): JSX.Element => (
+// TODO: unit test Config component
+const Config = ({ isExportDisabled, onExportClick }: ConfigProps): JSX.Element => (
   <Wrapper>
     <ProfileConfig />
     <Vr />
-    <TemplateDiv />
+    <TemplateDiv>
+      <Button isDisabled={isExportDisabled} onClick={() => onExportClick()}>
+        Export
+      </Button>
+    </TemplateDiv>
   </Wrapper>
 );
 

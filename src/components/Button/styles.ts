@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ButtonProps } from './types';
 
-export const Button = styled.button<Pick<ButtonProps, 'variant' | 'size'>>`
+export const Button = styled.button<Pick<ButtonProps, 'isDisabled' | 'variant' | 'size'>>`
   background-color: ${({ theme, variant }) =>
     variant === 'primary' ? theme.colors.primary[500] : theme.colors['euri-grey']};
   border: none;
@@ -20,6 +20,7 @@ export const Button = styled.button<Pick<ButtonProps, 'variant' | 'size'>>`
   }};
   font-weight: 700;
   margin: 0.5rem;
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   transition: all 300ms;
   padding: 1rem;
 

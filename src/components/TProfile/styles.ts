@@ -5,7 +5,9 @@ export const TProfileWrapper = styled.section`
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding: 1rem;
   position: relative;
+  width: 100%;
 `;
 
 export const GeneralisationWrapper = styled.div`
