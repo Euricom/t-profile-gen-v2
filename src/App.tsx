@@ -18,7 +18,7 @@ function App(): JSX.Element {
 
   return (
     <Layout
-      config={<Config onExportClick={handleImageExport} />}
+      config={<Config isExportDisabled={!isTprofilePresent} onExportClick={handleImageExport} />}
       header={<Header>T-Profile Generator</Header>}
       cookies={<Test />}
       preview={isTprofilePresent ? <TProfile ref={imageExportDOMNode} /> : null}

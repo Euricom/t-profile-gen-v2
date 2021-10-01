@@ -29,8 +29,9 @@ const Config = ({ isExportDisabled, onExportClick }: ConfigProps): JSX.Element =
     <ProfileConfig />
     <Vr />
     <TemplateDiv>
-      {isExportDisabled}
-      <Button onClick={() => onExportClick()}>Export</Button>
+      <Button isDisabled={isExportDisabled} onClick={() => onExportClick()}>
+        Export
+      </Button>
     </TemplateDiv>
   </Wrapper>
 );

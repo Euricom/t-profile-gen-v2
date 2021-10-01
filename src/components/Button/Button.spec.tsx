@@ -19,6 +19,7 @@ describe('Button component:', () => {
 
     expect(buttonElement).toBeVisible();
     expect(buttonElement).toHaveAttribute('type', 'button');
+    expect(buttonElement).toBeEnabled();
     expect(buttonElement).toHaveStyleRule('background-color', '#4eb439');
     expect(buttonElement).toHaveStyleRule('font-size', '1rem');
 
@@ -72,5 +73,21 @@ describe('Button component:', () => {
 
     expect(buttonElement).toBeVisible();
     expect(buttonElement).toHaveStyleRule('font-size', '1.2rem');
+  });
+
+  test('renders disabled state', () => {
+    const onClickMock = jest.fn();
+
+    render(
+      <Button onClick={onClickMock} isDisabled>
+        Disabled Button
+      </Button>,
+    );
+
+    const buttonElement = screen.getByRole('button', { name: /disabled button/i });
+
+    expect(buttonElement).toBeVisible();
+    expect(buttonElement).toBeDisabled();
+    expect(buttonElement).toHaveStyleRule('opacity', '0.5');
   });
 });
