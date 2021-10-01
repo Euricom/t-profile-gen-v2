@@ -24,6 +24,7 @@ const TemplateDiv = styled.div`
   flex-basis: 0;
 `;
 
+// TODO: unit test Config component
 const Config = ({ isExportDisabled, onExportClick }: ConfigProps): JSX.Element => (
   <Wrapper>
     <ProfileConfig />
