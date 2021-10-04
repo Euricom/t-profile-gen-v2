@@ -33,5 +33,8 @@ describe('Skills', () => {
     const fullNameInput = screen.getByRole('textbox', { name: /full name/i });
     userEvent.type(fullNameInput, 'Tim');
     expect(changeFullName).toHaveBeenCalledTimes(3);
+
+    expect(screen.getByRole('button', { name: /clear/i })).toBeVisible();
+    expect(screen.getByRole('button', { name: /sort/i })).toBeVisible();
   });
 });

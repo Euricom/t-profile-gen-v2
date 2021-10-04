@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import * as React from 'react';
 import styled from 'styled-components';
+import * as S from './styles';
 import { SkillSetControl } from '..';
 import { isSkillType, Skill, SkillContext } from '../../contexts/skills';
 import { Label } from '../SkillSetControl';
@@ -8,7 +9,8 @@ import TextInput from '../TextInput';
 
 const FullNameWrapper = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
 `;
 
 const StyledLabel = styled(Label)`
@@ -55,6 +57,10 @@ const Skills = (): JSX.Element => {
         <div>
           <StyledLabel htmlFor="fullname">Full Name</StyledLabel>
           <TextInput id="fullname" value={fullName} onChange={handleFullNameChange} />
+        </div>
+        <div>
+          <S.Button>Sort</S.Button>
+          <S.Button>Clear</S.Button>
         </div>
       </FullNameWrapper>
       {controls}
