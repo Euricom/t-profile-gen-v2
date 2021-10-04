@@ -17,6 +17,7 @@ export interface SkillContextValue {
   changeFullName: (fullName: string) => void;
   changeProficiency: (name: Skill, proficiency: number) => void;
   changeSkill: (name: Skill, skill: string) => void;
+  resetProfile: () => void;
   fullName: string;
   skillSets: Record<Skill, SkillSet>;
 }
@@ -39,6 +40,7 @@ export const SkillContext = React.createContext<SkillContextValue>({
   changeProficiency: () => null,
   changeSkill: () => null,
   changeFullName: () => null,
+  resetProfile: () => null,
 });
 
 interface SkillProviderProps {
@@ -57,8 +59,15 @@ const SkillProvider = ({ children }: SkillProviderProps): JSX.Element => {
 
   const changeFullName = (fullName: string) => setFullName(fullName);
 
+  const resetProfile = () => {
+    setSkillSets(initialSkillSets);
+    setFullName('');
+  };
+
   return (
-    <SkillContext.Provider value={{ changeFullName, fullName, skillSets, changeSkill, changeProficiency }}>
+    <SkillContext.Provider
+      value={{ changeFullName, fullName, skillSets, changeSkill, changeProficiency, resetProfile }}
+    >
       {children}
     </SkillContext.Provider>
   );

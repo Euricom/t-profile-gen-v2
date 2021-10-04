@@ -11,10 +11,18 @@ describe('Skills', () => {
     const changeSkill = jest.fn();
     const changeProficiency = jest.fn();
     const changeFullName = jest.fn();
+    const resetProfile = jest.fn();
 
     render(
       <SkillContext.Provider
-        value={{ fullName: '', changeFullName, skillSets: initialSkillSets, changeSkill, changeProficiency }}
+        value={{
+          fullName: '',
+          changeFullName,
+          skillSets: initialSkillSets,
+          changeSkill,
+          changeProficiency,
+          resetProfile,
+        }}
       >
         <Skills />
       </SkillContext.Provider>,
@@ -33,5 +41,12 @@ describe('Skills', () => {
     const fullNameInput = screen.getByRole('textbox', { name: /full name/i });
     userEvent.type(fullNameInput, 'Tim');
     expect(changeFullName).toHaveBeenCalledTimes(3);
+
+    expect(screen.getByRole('button', { name: /clear/i })).toBeVisible();
+    expect(screen.getByRole('button', { name: /sort/i })).toBeVisible();
+
+    const clearButton = screen.getByRole('button', { name: /clear/i });
+    userEvent.click(clearButton);
+    expect(resetProfile).toHaveBeenCalledTimes(1);
   });
 });
