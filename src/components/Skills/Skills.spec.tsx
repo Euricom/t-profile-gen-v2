@@ -44,5 +44,9 @@ describe('Skills', () => {
 
     expect(screen.getByRole('button', { name: /clear/i })).toBeVisible();
     expect(screen.getByRole('button', { name: /sort/i })).toBeVisible();
+
+    const clearButton = screen.getByRole('button', { name: /clear/i });
+    userEvent.click(clearButton);
+    expect(resetProfile).toHaveBeenCalledTimes(1);
   });
 });
