@@ -11,10 +11,18 @@ describe('Skills', () => {
     const changeSkill = jest.fn();
     const changeProficiency = jest.fn();
     const changeFullName = jest.fn();
+    const resetProfile = jest.fn();
 
     render(
       <SkillContext.Provider
-        value={{ fullName: '', changeFullName, skillSets: initialSkillSets, changeSkill, changeProficiency }}
+        value={{
+          fullName: '',
+          changeFullName,
+          skillSets: initialSkillSets,
+          changeSkill,
+          changeProficiency,
+          resetProfile,
+        }}
       >
         <Skills />
       </SkillContext.Provider>,
