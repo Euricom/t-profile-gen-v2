@@ -28,10 +28,13 @@ const controlLabels: Record<Skill, string> = {
 };
 
 const Skills = (): JSX.Element => {
-  const { fullName, changeFullName, changeProficiency, changeSkill, skillSets } = React.useContext(SkillContext);
+  const { fullName, changeFullName, changeProficiency, changeSkill, resetProfile, skillSets } =
+    React.useContext(SkillContext);
 
   const handleFullNameChange: React.ChangeEventHandler<HTMLInputElement> = (event) =>
     changeFullName(event.target.value);
+
+  const handleClearClick = () => resetProfile();
 
   const controls = Object.entries(controlLabels).map((keyVal) => {
     const [skill, label] = keyVal;
@@ -60,7 +63,7 @@ const Skills = (): JSX.Element => {
         </div>
         <div>
           <S.Button>Sort</S.Button>
-          <S.Button>Clear</S.Button>
+          <S.Button onClick={handleClearClick}>Clear</S.Button>
         </div>
       </FullNameWrapper>
       {controls}
