@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Config from './components/Config';
 import Layout from './components/Layout';
-import { Header, NamePreview, TProfile } from './components';
+import { Empty, Header, NamePreview, TProfile } from './components';
 import Skills from './components/Skills';
 import { SkillContext } from './contexts/skills';
 import { exportImage } from './utils';
@@ -21,7 +21,7 @@ function App(): JSX.Element {
       config={<Config isExportDisabled={!isTprofilePresent} onExportClick={handleImageExport} />}
       header={<Header>T-Profile Generator</Header>}
       cookies={<Test />}
-      preview={isTprofilePresent ? <TProfile ref={imageExportDOMNode} /> : null}
+      preview={isTprofilePresent ? <TProfile ref={imageExportDOMNode} /> : <Empty />}
       skills={<Skills />}
       user={<NamePreview state="To Be">{fullName}</NamePreview>}
     />

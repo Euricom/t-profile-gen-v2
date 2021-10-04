@@ -32,8 +32,11 @@ const Skills = styled.div`
   grid-area: skills;
 `;
 const Preview = styled.div`
-  height: 100%;
+  align-items: center;
+  display: flex;
   grid-area: preview;
+  height: 100%;
+  justify-content: center;
 `;
 const Config = styled.div`
   height: 100%;
