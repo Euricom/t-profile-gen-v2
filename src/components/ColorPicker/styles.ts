@@ -3,6 +3,7 @@ import { HexColorPicker } from 'react-colorful';
 
 // color picker
 export const ColorPickerContainer = styled.div`
+  margin: 0.5rem 0;
   position: relative;
 `;
 

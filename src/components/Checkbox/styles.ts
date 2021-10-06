@@ -4,6 +4,7 @@ import { CheckboxProps } from './types';
 export const CheckboxContainer = styled.label`
   align-items: center;
   display: inline-flex;
+  margin: 0.5rem 0;
 `;
 
 export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`

@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   border-bottom: solid 2px ${({ theme }) => theme.colors.primary[500]};
   display: flex;
   height: 100%;
-  padding: 16px 26px;
+  padding: 16px 0;
 `;
 
 const TemplateDiv = styled.div`
