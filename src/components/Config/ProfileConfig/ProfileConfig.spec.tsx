@@ -7,9 +7,10 @@ import ProfileConfig from '.';
 describe('ProfileConfig', () => {
   it('should render by default', () => {
     const handleNameConfig = jest.fn();
+    const handleSkillsPreviewConfig = jest.fn();
 
     render(
-      <ConfigContext.Provider value={{ config: initialValue, handleNameConfig }}>
+      <ConfigContext.Provider value={{ config: initialValue, handleNameConfig, handleSkillsPreviewConfig }}>
         <ProfileConfig />
       </ConfigContext.Provider>,
     );

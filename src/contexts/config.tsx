@@ -20,14 +20,22 @@ interface Config {
   asIs: boolean;
 }
 
+// function overloads
 interface HandleNameConfigOverload {
   (action: 'changeName'): void;
   (action: 'changeColor', payload: string): void;
 }
 
+interface HandleSkillsPreviewConfigOverload {
+  (action: 'showBorder'): void;
+  (action: 'changeBackgroundColor', payload: string): void;
+  (action: 'changeBorderColor', payload: string): void;
+}
+
 interface ConfigContext {
   config: Config;
   handleNameConfig: HandleNameConfigOverload;
+  handleSkillsPreviewConfig: HandleSkillsPreviewConfigOverload;
 }
 
 interface ConfigProviderProps {
@@ -52,6 +60,7 @@ export const initialValue: Config = {
 export const ConfigContext = React.createContext<ConfigContext>({
   config: initialValue,
   handleNameConfig: () => null,
+  handleSkillsPreviewConfig: () => null,
 });
 
 const ConfigProvider = ({ children }: ConfigProviderProps): JSX.Element => {
@@ -74,7 +83,43 @@ const ConfigProvider = ({ children }: ConfigProviderProps): JSX.Element => {
     }
   };
 
-  return <ConfigContext.Provider value={{ config, handleNameConfig }}>{children}</ConfigContext.Provider>;
+  const handleSkillsPreviewConfig = (
+    action: 'changeBackgroundColor' | 'changeBorderColor' | 'showBorder',
+    payload?: string,
+  ) => {
+    switch (action) {
+      case 'changeBackgroundColor': {
+        if (typeof payload === 'string') {
+          setConfig((prevState) => ({ ...prevState, skills: { ...prevState.skills, color: payload } }));
+        }
+        break;
+      }
+      case 'changeBorderColor': {
+        if (typeof payload === 'string') {
+          setConfig((prevState) => ({
+            ...prevState,
+            skills: { ...prevState.skills, border: { ...prevState.skills.border, color: payload } },
+          }));
+        }
+        break;
+      }
+      default: {
+        setConfig((prevState) => ({
+          ...prevState,
+          skills: {
+            ...prevState.skills,
+            border: { ...prevState.skills.border, show: !prevState.skills.border.show },
+          },
+        }));
+      }
+    }
+  };
+
+  return (
+    <ConfigContext.Provider value={{ config, handleNameConfig, handleSkillsPreviewConfig }}>
+      {children}
+    </ConfigContext.Provider>
+  );
 };
 
 export default ConfigProvider;
