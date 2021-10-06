@@ -9,6 +9,7 @@ const ProfileConfig = (): JSX.Element => {
 
   return (
     <S.Wrapper>
+      <S.Title>T-Profile Settings</S.Title>
       <Checkbox
         labelText="Show Full Name"
         name="showFullname"
