@@ -37,7 +37,7 @@ interface ConfigProviderProps {
 export const initialValue: Config = {
   fullName: {
     show: true,
-    color: colors['euri-grey'],
+    color: colors.neutral[900],
   },
   skills: {
     color: colors.primary['500'],

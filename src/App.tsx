@@ -5,14 +5,17 @@ import { Empty, Header, NamePreview, TProfile } from './components';
 import Skills from './components/Skills';
 import { SkillContext } from './contexts/skills';
 import { exportImage } from './utils';
+import { ConfigContext } from './contexts/config';
 
 const Test = () => <div />;
 
 function App(): JSX.Element {
   const { fullName, skillSets } = React.useContext(SkillContext);
+  const { config } = React.useContext(ConfigContext);
   const imageExportDOMNode = React.useRef<null | HTMLElement>(null);
 
   const isTprofilePresent = Boolean(Object.values(skillSets).filter((skillSet) => skillSet.skill).length);
+  const isNamePresent = config.fullName.show;
 
   const handleImageExport = () => exportImage({ DOMNode: imageExportDOMNode.current, userName: fullName });
 
@@ -23,7 +26,11 @@ function App(): JSX.Element {
       cookies={<Test />}
       preview={isTprofilePresent ? <TProfile ref={imageExportDOMNode} /> : <Empty />}
       skills={<Skills />}
-      user={<NamePreview state="To Be">{fullName}</NamePreview>}
+      user={
+        <NamePreview state="To Be" color={config.fullName.color}>
+          {isNamePresent && fullName}
+        </NamePreview>
+      }
     />
   );
 }
