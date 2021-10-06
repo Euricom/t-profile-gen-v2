@@ -1,8 +1,7 @@
 import * as React from 'react';
-
 import { colors } from '../theme/foundations';
 
-interface FullNameConfig {
+interface NameConfig {
   show: boolean;
   color: string;
 }
@@ -15,13 +14,27 @@ interface SkillsConfig {
   };
 }
 
-interface ConfigContextValue {
-  fullName: FullNameConfig;
+interface Config {
+  fullName: NameConfig;
   skills: SkillsConfig;
   asIs: boolean;
 }
 
-export const initialValue: ConfigContextValue = {
+interface HandleNameConfigOverload {
+  (action: 'changeName'): void;
+  (action: 'changeColor', payload: string): void;
+}
+
+interface ConfigContext {
+  config: Config;
+  handleNameConfig: HandleNameConfigOverload;
+}
+
+interface ConfigProviderProps {
+  children: React.ReactNode;
+}
+
+export const initialValue: Config = {
   fullName: {
     show: true,
     color: colors['euri-grey'],
@@ -36,21 +49,32 @@ export const initialValue: ConfigContextValue = {
   asIs: true,
 };
 
-export const ConfigContext = React.createContext<ConfigContextValue>(initialValue);
-
-interface ConfigProviderProps {
-  children: React.ReactNode;
-}
-
-type test = keyof FullNameConfig;
+export const ConfigContext = React.createContext<ConfigContext>({
+  config: initialValue,
+  handleNameConfig: () => null,
+});
 
 const ConfigProvider = ({ children }: ConfigProviderProps): JSX.Element => {
-  const [config, setConfig] = React.useState<ConfigContextValue>(initialValue);
+  const [config, setConfig] = React.useState<Config>(initialValue);
 
-  // TODO: I finished here, I was thinking how to update the config state, but i'm not sure the ConfigContextValue interface is OK.
-  // const changeFullNameConfig = (name: Pick<keyof FullNameConfig, 'show'>)
+  const handleNameConfig: HandleNameConfigOverload = (action: 'changeName' | 'changeColor', payload?: string) => {
+    switch (action) {
+      case 'changeColor': {
+        if (typeof payload === 'string') {
+          setConfig((prevState) => ({ ...prevState, fullName: { ...prevState.fullName, color: payload } }));
+        }
+        break;
+      }
+      default: {
+        setConfig((prevState) => ({
+          ...prevState,
+          fullName: { ...prevState.fullName, show: !prevState.fullName.show },
+        }));
+      }
+    }
+  };
 
-  return <ConfigContext.Provider value={config}>{children}</ConfigContext.Provider>;
+  return <ConfigContext.Provider value={{ config, handleNameConfig }}>{children}</ConfigContext.Provider>;
 };
 
 export default ConfigProvider;

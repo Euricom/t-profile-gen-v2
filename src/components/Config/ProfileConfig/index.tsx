@@ -1,27 +1,28 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import * as S from './styles';
 import { Checkbox, ColorPicker } from '../..';
 import { ConfigContext } from '../../../contexts/config';
 
-const Wrapper = styled.div`
-  flex-basis: 0;
-  flex-grow: 1;
-`;
-
 const ProfileConfig = (): JSX.Element => {
-  const { asIs, fullName, skills } = React.useContext(ConfigContext);
-
-  const test = (color: string) => {
-    console.log(color);
-  };
+  const { config, handleNameConfig } = React.useContext(ConfigContext);
+  const { fullName } = config;
 
   return (
-    <Wrapper>
-      <Checkbox labelText="Show Full Name" name="showFullname" isChecked={fullName.show} />
-      <ColorPicker ariaLabel="Full Name Color" color={fullName.color} onChange={test}>
+    <S.Wrapper>
+      <Checkbox
+        labelText="Show Full Name"
+        name="showFullname"
+        isChecked={fullName.show}
+        onChange={() => handleNameConfig('changeName')}
+      />
+      <ColorPicker
+        ariaLabel="Full Name Color"
+        color={fullName.color}
+        onChange={(color: string) => handleNameConfig('changeColor', color)}
+      >
         Full Name Color
       </ColorPicker>
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 
