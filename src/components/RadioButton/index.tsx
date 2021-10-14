@@ -6,13 +6,13 @@ const RadioButton = ({ checked, label, onChange, id, ...rest }: RadioButtonProps
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => onChange(event.target.value);
 
   return (
-    <div>
+    <S.RadioContainer>
       <S.Label htmlFor={id}>
         <S.Radio checked={checked} />
         {label}
       </S.Label>
       <S.NativeRadio id={id} onChange={handleChange} checked={checked} {...rest} />
-    </div>
+    </S.RadioContainer>
   );
 };
 
