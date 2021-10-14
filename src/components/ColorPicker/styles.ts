@@ -39,6 +39,7 @@ export const ColorPickerPopoverContainer = styled.div`
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   position: absolute;
   left: 0;
+  z-index: 1;
 `;
 
 // overrides of default styles for react-colorful colorPicker
@@ -61,6 +62,7 @@ export const ColorPickerPopover = styled(HexColorPicker)`
 `;
 
 export const ColorPickerPopoverSwatchesContainer = styled.div`
+  background-color: ${({ theme }) => theme.colors.neutral[50]};
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
