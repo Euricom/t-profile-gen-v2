@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as S from './styles';
-import { Checkbox, ColorPicker } from '../..';
 import { ConfigContext } from '../../../contexts/config';
 import RadioButton from '../../RadioButton';
+import Checkbox from '../../Checkbox/Checkbox';
+import ColorPicker from '../../ColorPicker/ColorPicker';
 
 const ProfileConfig = (): JSX.Element => {
   const { config, handleNameConfig, handleSkillsPreviewConfig, handleTProfileVersion } =
