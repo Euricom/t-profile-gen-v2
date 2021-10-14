@@ -17,6 +17,8 @@ function App(): JSX.Element {
   const isTprofilePresent = Boolean(Object.values(skillSets).filter((skillSet) => skillSet.skill).length);
   const isNamePresent = config.fullName.show;
 
+  const tProfileVersion = config.asIs ? 'As Is' : 'To Be';
+
   const handleImageExport = () => exportImage({ DOMNode: imageExportDOMNode.current, userName: fullName });
 
   return (
@@ -27,7 +29,7 @@ function App(): JSX.Element {
       preview={isTprofilePresent ? <TProfile ref={imageExportDOMNode} /> : <Empty />}
       skills={<Skills />}
       user={
-        <NamePreview state="To Be" color={config.fullName.color}>
+        <NamePreview state={tProfileVersion} color={config.fullName.color}>
           {isNamePresent && fullName}
         </NamePreview>
       }
