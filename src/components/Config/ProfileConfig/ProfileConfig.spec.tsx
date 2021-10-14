@@ -8,9 +8,12 @@ describe('ProfileConfig', () => {
   it('should render by default', () => {
     const handleNameConfig = jest.fn();
     const handleSkillsPreviewConfig = jest.fn();
+    const handleTProfileVersion = jest.fn();
 
     render(
-      <ConfigContext.Provider value={{ config: initialValue, handleNameConfig, handleSkillsPreviewConfig }}>
+      <ConfigContext.Provider
+        value={{ config: initialValue, handleNameConfig, handleSkillsPreviewConfig, handleTProfileVersion }}
+      >
         <ProfileConfig />
       </ConfigContext.Provider>,
     );

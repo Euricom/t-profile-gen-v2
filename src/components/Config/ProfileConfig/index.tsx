@@ -2,9 +2,11 @@ import * as React from 'react';
 import * as S from './styles';
 import { Checkbox, ColorPicker } from '../..';
 import { ConfigContext } from '../../../contexts/config';
+import RadioButton from '../../RadioButton';
 
 const ProfileConfig = (): JSX.Element => {
-  const { config, handleNameConfig, handleSkillsPreviewConfig } = React.useContext(ConfigContext);
+  const { config, handleNameConfig, handleSkillsPreviewConfig, handleTProfileVersion } =
+    React.useContext(ConfigContext);
   const { fullName, skills } = config;
 
   return (
@@ -48,7 +50,22 @@ const ProfileConfig = (): JSX.Element => {
             Border Color
           </ColorPicker>
         </S.SettingsColumn>
-        <S.SettingsColumn>Other Settings</S.SettingsColumn>
+        <S.SettingsColumn>
+          <RadioButton
+            id="asIs"
+            checked={config.asIs}
+            label="As-is"
+            onChange={(version) => handleTProfileVersion(version)}
+            value="As-is"
+          />
+          <RadioButton
+            id="toBe"
+            checked={!config.asIs}
+            label="To-be"
+            onChange={(version) => handleTProfileVersion(version)}
+            value="To-be"
+          />
+        </S.SettingsColumn>
       </S.SettingsRow>
     </S.Wrapper>
   );

@@ -36,6 +36,7 @@ interface ConfigContext {
   config: Config;
   handleNameConfig: HandleNameConfigOverload;
   handleSkillsPreviewConfig: HandleSkillsPreviewConfigOverload;
+  handleTProfileVersion: (value: string) => void;
 }
 
 interface ConfigProviderProps {
@@ -61,6 +62,7 @@ export const ConfigContext = React.createContext<ConfigContext>({
   config: initialValue,
   handleNameConfig: () => null,
   handleSkillsPreviewConfig: () => null,
+  handleTProfileVersion: () => null,
 });
 
 const ConfigProvider = ({ children }: ConfigProviderProps): JSX.Element => {
@@ -115,8 +117,24 @@ const ConfigProvider = ({ children }: ConfigProviderProps): JSX.Element => {
     }
   };
 
+  const handleTProfileVersion = (version: string) => {
+    switch (version) {
+      case 'As-is': {
+        setConfig((prevState) => ({ ...prevState, asIs: true }));
+        break;
+      }
+      case 'To-be': {
+        setConfig((prevState) => ({ ...prevState, asIs: false }));
+        break;
+      }
+      default: {
+        throw new Error(`${version} is not a valid value.`);
+      }
+    }
+  };
+
   return (
-    <ConfigContext.Provider value={{ config, handleNameConfig, handleSkillsPreviewConfig }}>
+    <ConfigContext.Provider value={{ config, handleNameConfig, handleSkillsPreviewConfig, handleTProfileVersion }}>
       {children}
     </ConfigContext.Provider>
   );
