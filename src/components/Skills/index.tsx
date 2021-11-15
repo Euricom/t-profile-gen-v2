@@ -28,7 +28,7 @@ const controlLabels: Record<Skill, string> = {
 };
 
 const Skills = (): JSX.Element => {
-  const { fullName, changeFullName, changeProficiency, changeSkill, resetProfile, skillSets } =
+  const { fullName, changeFullName, changeProficiency, changeSkill, resetProfile, skillSets, sortSkills } =
     React.useContext(SkillContext);
 
   const handleFullNameChange: React.ChangeEventHandler<HTMLInputElement> = (event) =>
@@ -36,17 +36,17 @@ const Skills = (): JSX.Element => {
 
   const handleClearClick = () => resetProfile();
 
-  const controls = Object.entries(controlLabels).map((keyVal) => {
-    const [skill, label] = keyVal;
+  const controls = Object.entries(skillSets).map((keyVal) => {
+    const [skill, skillSet] = keyVal;
     isSkillType(skill);
 
     return (
       <SkillSetControl
-        label={label}
+        label={controlLabels[skill]}
         id={skill}
         name={skill}
-        skill={skillSets[skill].skill}
-        proficiency={skillSets[skill].proficiency}
+        skill={skillSet.skill}
+        proficiency={skillSet.proficiency}
         onSkillChange={changeSkill}
         onProficiencyChange={changeProficiency}
         key={skill}
@@ -62,7 +62,7 @@ const Skills = (): JSX.Element => {
           <TextInput id="fullname" value={fullName} onChange={handleFullNameChange} />
         </div>
         <div>
-          <S.Button>Sort</S.Button>
+          <S.Button onClick={sortSkills}>Sort</S.Button>
           <S.Button onClick={handleClearClick}>Clear</S.Button>
         </div>
       </FullNameWrapper>
