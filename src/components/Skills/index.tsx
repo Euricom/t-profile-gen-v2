@@ -9,7 +9,7 @@ import TextInput from '../TextInput';
 
 const FullNameWrapper = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 `;
 

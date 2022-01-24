@@ -76,10 +76,14 @@ const SkillProvider = ({ children }: SkillProviderProps): JSX.Element => {
     const sortedGeneralisms = generalisms.sort((g1, g2) => g2.proficiency - g1.proficiency);
     const sortedSpecialisms = specialisms.sort((s1, s2) => s2.proficiency - s1.proficiency);
 
-    const newSkillSets = [...sortedGeneralisms, ...sortedSpecialisms].reduce<SkillContextValue['skillSets']>((skillSets, skill) => {
+    const newSkillSets = [...sortedGeneralisms, ...sortedSpecialisms].reduce<SkillContextValue['skillSets']>((skillSetsObj, skill, index) => {
       isSkillType(skill.id);
 
-      return {...skillSets, [skill.id]: skill}
+      const id = Object.keys(skillSets)[index]
+
+      isSkillType(id)
+
+      return {...skillSetsObj, [skill.id]: {...skill, id}}
     }, {} as SkillContextValue['skillSets'])
 
     setSkillSets(newSkillSets);
