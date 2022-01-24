@@ -16,7 +16,7 @@ function isSpecialism(value: unknown): value is Specialism {
 export const ALL_SKILLS = [...GENERALISMS, ...SPECIALISMS] as const;
 export type Skill = typeof ALL_SKILLS[number];
 export function isSkillType(value: string): asserts value is Skill {
-  if (!ALL_SKILLS.includes(value as any)) throw new Error(`${value} is not a Skill type`);
+  if (!ALL_SKILLS.includes(value as Skill)) throw new Error(`${value} is not a Skill type`);
 }
 
 interface SkillSet {

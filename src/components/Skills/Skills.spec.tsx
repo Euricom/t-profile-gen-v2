@@ -86,8 +86,6 @@ describe('Skills', () => {
     const sortButton = screen.getByRole('button', { name: /sort/i });
     userEvent.click(sortButton);
 
-    screen.debug();
-
     expect(gen1SkillInput).toHaveValue('DevOps');
   });
 });
