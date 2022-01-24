@@ -76,16 +76,38 @@ describe('Skills', () => {
 
     const spec1SkillInput = screen.getByRole('textbox', { name: /specialisme 1/i });
     userEvent.type(spec1SkillInput, 'Java');
+    const spec1SkillRange = screen.getByRole('slider', { name: /specialisme 1/i });
+    fireEvent.change(spec1SkillRange, { target: { value: 15 } });
 
     const spec2SkillInput = screen.getByRole('textbox', { name: /specialisme 2/i });
     userEvent.type(spec2SkillInput, '#Net');
+    const spec2SkillRange = screen.getByRole('slider', { name: /specialisme 2/i });
+    fireEvent.change(spec2SkillRange, { target: { value: 10 } });
 
     const spec3SkillInput = screen.getByRole('textbox', { name: /specialisme 3/i });
     userEvent.type(spec3SkillInput, 'React');
+    const spec3SkillRange = screen.getByRole('slider', { name: /specialisme 3/i });
+    fireEvent.change(spec3SkillRange, { target: { value: 30 } });
 
     const sortButton = screen.getByRole('button', { name: /sort/i });
     userEvent.click(sortButton);
 
     expect(gen1SkillInput).toHaveValue('DevOps');
+    expect(gen1SkillRange).toHaveValue('80');
+
+    expect(gen2SkillInput).toHaveValue('Javascript');
+    expect(gen2SkillRange).toHaveValue('60');
+
+    expect(gen3SkillInput).toHaveValue('NodeJs');
+    expect(gen3SkillRange).toHaveValue('50');
+
+    expect(spec1SkillInput).toHaveValue('React');
+    expect(spec1SkillRange).toHaveValue('30');
+
+    expect(spec2SkillInput).toHaveValue('Java');
+    expect(spec2SkillRange).toHaveValue('15');
+
+    expect(spec3SkillInput).toHaveValue('#Net');
+    expect(spec3SkillRange).toHaveValue('10');
   });
 });
