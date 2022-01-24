@@ -1,14 +1,19 @@
 import * as React from 'react';
 import { screen } from '@testing-library/react';
-
 import { ConfigContext, initialValue } from '../../../contexts/config';
 import { render } from '../../../utils/test/render';
 import ProfileConfig from '.';
 
 describe('ProfileConfig', () => {
   it('should render by default', () => {
+    const handleNameConfig = jest.fn();
+    const handleSkillsPreviewConfig = jest.fn();
+    const handleTProfileVersion = jest.fn();
+
     render(
-      <ConfigContext.Provider value={initialValue}>
+      <ConfigContext.Provider
+        value={{ config: initialValue, handleNameConfig, handleSkillsPreviewConfig, handleTProfileVersion }}
+      >
         <ProfileConfig />
       </ConfigContext.Provider>,
     );

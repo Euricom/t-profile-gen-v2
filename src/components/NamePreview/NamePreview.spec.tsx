@@ -5,9 +5,16 @@ import NamePreview from './NamePreview';
 
 describe('NamePreview component:', () => {
   test('renders by default', () => {
-    render(<NamePreview state="To Be">child string</NamePreview>);
+    render(
+      <NamePreview color="#000000" state="To Be">
+        child string
+      </NamePreview>,
+    );
 
-    expect(screen.getByText(/child string/i)).toBeVisible();
+    const childElement = screen.getByText(/child string/i);
+
+    expect(childElement).toBeVisible();
     expect(screen.getByText(/to be/i)).toBeVisible();
+    expect(childElement).toHaveStyleRule('color', '#000000');
   });
 });

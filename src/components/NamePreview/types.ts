@@ -1,4 +1,5 @@
 export interface NamePreviewProps {
-  children?: string;
+  color: string;
+  children?: string | boolean;
   state: 'To Be' | 'As Is';
 }

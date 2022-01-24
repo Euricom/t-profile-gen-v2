@@ -10,8 +10,8 @@ export const NamePreviewWrapper = styled.section`
   width: 50%;
 `;
 
-export const NamePreviewName = styled.p`
-  color: ${({ theme }) => theme.colors.neutral[900]};
+export const NamePreviewName = styled.p<{ colorName: string }>`
+  color: ${({ colorName }) => colorName};
   font-size: 0.9rem;
   font-weight: 700;
   margin: 0.1rem 0;

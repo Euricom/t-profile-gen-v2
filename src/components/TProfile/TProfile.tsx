@@ -1,25 +1,20 @@
 import React, { ForwardedRef } from 'react';
 import * as S from './styles';
 import TProfileItem from './TProfileItem/TProfileItem';
-import Legend from './Legend/Legend';
+import Legend, { SkillSetData } from './Legend/Legend';
 import { SkillContext } from '../../contexts/skills';
-
-const BG_COLOR_PLACEHOLDER = 'red';
-const BORDER_COLOR_PLACEHOLDER = 'blue';
+import { ConfigContext } from '../../contexts/config';
 
 const TProfile = React.forwardRef((props, ref: ForwardedRef<null | HTMLElement>): JSX.Element => {
   const { skillSets } = React.useContext(SkillContext);
+  const { config } = React.useContext(ConfigContext);
 
-  const skillSetItems = Object.entries(skillSets).map((skillSetItem) => {
-    const [abbr, { id, proficiency, skill }] = skillSetItem;
+  const { skills } = config;
 
-    return {
-      abbr,
-      id,
-      proficiency,
-      skill,
-    };
-  });
+  const skillSetItems = Object.entries(skillSets).map<SkillSetData>(([skill, skillSet]) => ({
+    ...skillSet,
+    abbr: skill,
+  }));
 
   return (
     <>
@@ -30,10 +25,10 @@ const TProfile = React.forwardRef((props, ref: ForwardedRef<null | HTMLElement>)
             if (skillSetItem.skill && skillSetItem.abbr.includes('g')) {
               return (
                 <TProfileItem
-                  border
-                  bgColor={BG_COLOR_PLACEHOLDER}
-                  borderColor={BORDER_COLOR_PLACEHOLDER}
-                  key={skillSetItem.id}
+                  border={skills.border.show}
+                  bgColor={skills.color}
+                  borderColor={skills.border.color}
+                  key={skillSetItem.abbr}
                   scale={skillSetItem.proficiency}
                   legend={skillSetItem.abbr.toUpperCase()}
                   type="generalisme"
@@ -50,10 +45,10 @@ const TProfile = React.forwardRef((props, ref: ForwardedRef<null | HTMLElement>)
             if (skillSetItem.skill && skillSetItem.abbr.includes('s')) {
               return (
                 <TProfileItem
-                  border
-                  bgColor={BG_COLOR_PLACEHOLDER}
-                  borderColor={BORDER_COLOR_PLACEHOLDER}
-                  key={skillSetItem.id}
+                  border={skills.border.show}
+                  bgColor={skills.color}
+                  borderColor={skills.border.color}
+                  key={skillSetItem.abbr}
                   scale={skillSetItem.proficiency}
                   legend={skillSetItem.abbr.toUpperCase()}
                   type="specialisme"
