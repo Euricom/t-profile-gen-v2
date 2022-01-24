@@ -1,7 +1,7 @@
 import React, { ForwardedRef } from 'react';
 import * as S from './styles';
 import TProfileItem from './TProfileItem/TProfileItem';
-import Legend from './Legend/Legend';
+import Legend, { SkillSetData } from './Legend/Legend';
 import { SkillContext } from '../../contexts/skills';
 import { ConfigContext } from '../../contexts/config';
 
@@ -11,16 +11,10 @@ const TProfile = React.forwardRef((props, ref: ForwardedRef<null | HTMLElement>)
 
   const { skills } = config;
 
-  const skillSetItems = Object.entries(skillSets).map((skillSetItem) => {
-    const [abbr, { id, proficiency, skill }] = skillSetItem;
-
-    return {
-      abbr,
-      id,
-      proficiency,
-      skill,
-    };
-  });
+  const skillSetItems = Object.entries(skillSets).map<SkillSetData>(([skill, skillSet]) => ({
+    ...skillSet,
+    abbr: skill,
+  }));
 
   return (
     <>
@@ -34,7 +28,7 @@ const TProfile = React.forwardRef((props, ref: ForwardedRef<null | HTMLElement>)
                   border={skills.border.show}
                   bgColor={skills.color}
                   borderColor={skills.border.color}
-                  key={skillSetItem.id}
+                  key={skillSetItem.abbr}
                   scale={skillSetItem.proficiency}
                   legend={skillSetItem.abbr.toUpperCase()}
                   type="generalisme"
@@ -54,7 +48,7 @@ const TProfile = React.forwardRef((props, ref: ForwardedRef<null | HTMLElement>)
                   border={skills.border.show}
                   bgColor={skills.color}
                   borderColor={skills.border.color}
-                  key={skillSetItem.id}
+                  key={skillSetItem.abbr}
                   scale={skillSetItem.proficiency}
                   legend={skillSetItem.abbr.toUpperCase()}
                   type="specialisme"

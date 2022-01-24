@@ -1,6 +1,15 @@
 import React from 'react';
 import * as S from './styles';
-import { LegendProps } from './types';
+
+export interface SkillSetData {
+  abbr: string;
+  proficiency: number;
+  skill: string;
+}
+
+interface LegendProps {
+  skillsData: SkillSetData[];
+}
 
 const proficiencyValue = 25;
 
@@ -9,7 +18,7 @@ const Legend = ({ skillsData }: LegendProps): JSX.Element => (
     {skillsData.map((skillsDataItem) => {
       if (skillsDataItem.skill && skillsDataItem.proficiency <= proficiencyValue) {
         return (
-          <S.LegendItem key={skillsDataItem.id}>
+          <S.LegendItem key={skillsDataItem.abbr}>
             {skillsDataItem.abbr.toUpperCase()}: <span>{skillsDataItem.skill}</span>
           </S.LegendItem>
         );
